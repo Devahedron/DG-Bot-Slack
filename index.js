@@ -61,13 +61,13 @@ app.command("/dg-bot-catpic", async ({ ack, respond }) => {
   await ack();
 
   try {
-    const response = await axios.get("https://cataas.com/cat");
+    const response = await axios.get("https://cataas.com/api/cats");
     await respond({
       text: "Cat Image:",
       "attachments": [
           {
               "fallback": "Cat Image",
-              "image_url": "https://cataas.com/cat",
+              "image_url": "https://cataas.com/cat?" + new Date().getTime()
           }
       ]
     });
