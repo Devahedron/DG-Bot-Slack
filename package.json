@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Devahedron/DG-Bot-Slack#readme",
   "dependencies": {
     "@slack/bolt": "^5.0.0",
+    "axios": "^1.19.0",
     "dotenv": "^17.4.2"
   }
 }
