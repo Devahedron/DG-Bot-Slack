@@ -25,7 +25,8 @@ app.command("/dg-bot-help", async ({ ack, respond }) => {
 /dg-bot-help - Shows this menu
 /dg-bot-ping - Check bot latency
 /dg-bot-catfact - Get a cat fact
-/dg-bot-joke - Get a joke`
+/dg-bot-joke - Get a joke
+/dg-bot-catpic - Get a cat pic`
   });
 });
 
@@ -56,6 +57,24 @@ ${response.data.punchline}`
   }
 });
 
+app.command("/dg-bot-catpic", async ({ ack, respond }) => {
+  await ack();
+
+  try {
+    const response = await axios.get("https://cataas.com/cat");
+    await respond({
+      text: "Cat Image:",
+      "attachments": [
+          {
+              "fallback": "Cat Image",
+              "image_url": "https://cataas.com/cat",
+          }
+      ]
+    });
+  } catch (err) {
+    await respond({ text: "Failed to fetch a cat image." });
+  }
+});
 
 (async () => {
   await app.start();
