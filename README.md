@@ -76,8 +76,8 @@ https://api.slack.com/apps
 
 ### Create a systemd service for it (for running it 24/7):
 
-1. Create a service file:
-- nano /etc/systemd/system/slackbot.service
+1. Create a service file:<br/>
+`nano /etc/systemd/system/slackbot.service`
 
 2. Paste the following into it (edit WorkingDirectory to match your repo path):
 > [Unit]<br/>
