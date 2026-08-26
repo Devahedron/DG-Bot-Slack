@@ -40,4 +40,4 @@ I followed the SlackBot tutorial from HackClub and my custom command is the catp
 6. Run it<br />
 `node index.js`
 
-7. See if it work in Slack
+7. Finally: See if it works in Slack
