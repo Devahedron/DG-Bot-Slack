@@ -72,4 +72,36 @@ https://api.slack.com/apps
 14. Run it<br/>
 `node index.js`
 
-15. Finally: See if it works in Slack
+15. See if it works in Slack!
+
+### Create a systemd service for it (for running it 24/7):
+
+1. Create a service file:
+- nano /etc/systemd/system/slackbot.service
+
+2. Paste the following into it (edit WorkingDirectory to match your repo path):
+> [Unit]<br/>
+> Description=Slack Bot<br/>
+> After=network-online.target<br/>
+> Wants=network-online.target
+>  
+> [Service]<br/>
+> Type=simple<br/>
+> User=root<br/>
+> Restart=always<br/>
+> RestartSec=5<br/>
+> WorkingDirectory=/path/to/repo<br/>
+> ExecStart=/usr/bin/node index.js
+>  
+> [Install]<br/>
+> WantedBy=multi-user.target
+
+3. Reload it
+`systemctl daemon-reload`
+
+4. Enable it
+`systemctl enable --now slackbot.service`
+
+5. Confirm it is running
+`systemctl status slackbot.service`
+`journalctl -u slackbot.service -f`
