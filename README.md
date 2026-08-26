@@ -17,27 +17,59 @@ I followed the SlackBot tutorial from HackClub and my custom command is the catp
 
 ## Instructions for running it yourself:
 
+1. Go to Slack dashboard and create an app
+https://api.slack.com/apps
+
+2. In "Socket Mode":
+- Make sure "Enable Socket Mode" is set to on
+
+3. In "Basic Information" page:
+- Click "Generate Tokens and Scopes"
+- Give the token a name
+- add the connections:write scope
+- Click "Generate"
+- Save the token starting with "xapp-" for later
+
+4. In "OAuth & Permissions":
+- Under "Bot Token Scopes" hit "Add an OAuth Scope"
+- Add the following:<br/>
+`chat:write`<br/>
+`commands`<br/>
+`app_mentions:read`<br/>
+`channels:history`
+
+5. In "Install App":
+- Hit the install button and select where to install it
+
+6. In "OAuth & Permissions":
+- Copy the bot token (starts with xoxb-) and save it for later
+
+7. In "Slash Commands":
+- Add the commands for the bot (listed in here under "Commands" ^)
+
+8. Install these on your system
 - git
 - npm (I used 11.17.0)
 - node.js (I used v24.19.0)
 
-1. Clone this repo<br />
+9. Clone this repo<br/>
 `git clone https://github.com/Devahedron/DG-Bot-Slack`
 
-2. Go into the cloned repo's directory<br />
+10. Go into the cloned repo's directory<br/>
 `cd DG-Bot-Slack`
 
-3. Download and install npm packages<br />
+11. Download and install npm packages<br/>
 `npm install`
 
-4. Create .env<br />
+12. Create .env<br/>
 `nano .env`
 
-5. Put your slack tokens into .env<br />
-`SLACK_BOT_TOKEN=xoxb-...   # Bot User OAuth Token (from OAuth & Permissions)`<br />
+13. Put your slack tokens into .env<br/>
+`SLACK_BOT_TOKEN=xoxb-...   # Bot User OAuth Token (from OAuth & Permissions)`<br/>
 `SLACK_APP_TOKEN=xapp-...   # App-Level Token (from Basic Information → App-Level Tokens)`
+- To save it hit `ctrl x`, then `y`, then `return`
 
-6. Run it<br />
+14. Run it<br/>
 `node index.js`
 
-7. Finally: See if it works in Slack
+15. Finally: See if it works in Slack
