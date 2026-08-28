@@ -26,7 +26,8 @@ app.command("/dg-bot-help", async ({ ack, respond }) => {
 /dg-bot-ping - Check bot latency
 /dg-bot-catfact - Get a cat fact
 /dg-bot-joke - Get a joke
-/dg-bot-catpic - Get a cat pic`
+/dg-bot-catpic - Get a cat pic
+/dg-bot-1337 - Give it text, get l33t 5p34k. Ex: /dg-bot-1337 text -> 73x7`
   });
 });
 
@@ -73,6 +74,18 @@ app.command("/dg-bot-catpic", async ({ ack, respond }) => {
     });
   } catch (err) {
     await respond({ text: "Failed to fetch a cat image." });
+  }
+});
+
+app.command("/dg-bot-1337", async ({ command, ack, respond }) => {
+  await ack();
+
+  try {
+    let text = String(command.text);
+    let response = text.replace(/A/gi, "4").replace(/L/gi, "1").replace(/E/gi, "3").replace(/T/gi, "7").replace(/o/gi, "0").replace(/B/gi, "8").replace(/S/gi, "5").replace(/G/gi, "6");
+    await respond(response);
+  } catch (err) {
+    await respond({ text: "Something went wrong. Maybe you didn't input text?" });
   }
 });
 
