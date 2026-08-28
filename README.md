@@ -12,8 +12,9 @@ A simple Slack Bot that has some fun commands.
 - dg-bot-joke
 - dg-bot-catfact
 - dg-bot-catpic
+- dg-bot-1337
 
-I followed the SlackBot tutorial from HackClub and my custom command is the catpic command. It isn't very technical/hard to make, but it was hard for me.
+I followed the SlackBot tutorial from HackClub and my custom commands are the catpic and 1337 commands. It isn't very technical/hard to make, but it was hard for me.
 
 ## Instructions for running it yourself:
 
